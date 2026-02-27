@@ -1,6 +1,19 @@
 from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 
+import nltk
+
+# ✅ MUST BE BEFORE ANY OTHER IMPORTS
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+
+try:
+    nltk.data.find('tokenizers/punkt_tab')
+except LookupError:
+    nltk.download('punkt_tab')
+
 # ----------------- PLAGIARISM -----------------
 from plagiarism.plagiarism_service import analyze_plagiarism
 
@@ -13,7 +26,17 @@ from report_generator import generate_report
 app = Flask(__name__)
 CORS(app)  # allow frontend access
 
+import nltk
 
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+
+try:
+    nltk.data.find('tokenizers/punkt_tab')
+except LookupError:
+    nltk.download('punkt_tab')
 @app.route("/analyze", methods=["POST"])
 def analyze():
     data = request.get_json()
