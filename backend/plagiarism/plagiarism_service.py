@@ -114,11 +114,8 @@ def build_queries(sentence):
         [f"site:{domain}" for domain in TRUSTED_DOMAINS]
     )
 
-    # Primary exact phrase search
-    query = f'({domain_filter}) "{base}"'
-
-    # Fallback without quotes (still restricted)
-    fallback = f'({domain_filter}) {base}'
+    query = f'"{base}" {domain_filter}'
+    fallback = f'{base} {domain_filter}'
 
     return [query, fallback]
 
