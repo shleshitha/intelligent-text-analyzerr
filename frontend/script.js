@@ -89,7 +89,7 @@ function runAnalysis(mode) {
 
   showLoading();
 
-  fetch("/analyze", {
+  fetch("https://intelligent-text-analyzer.onrender.com/analyze", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ text, mode })
