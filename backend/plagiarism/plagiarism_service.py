@@ -14,8 +14,7 @@ from nltk.tokenize import sent_tokenize
 # =====================================================
 # CONFIG
 # =====================================================
-SERPAPI_KEY = "31482a539d990a8ba91d0bc0c5a5164b013419f11980b84c57fa2789ad99b996"
-
+SERPAPI_KEY = os.getenv("SERPAPI_KEY")
 TRUSTED_DOMAINS = (
    "wikipedia.org",
     "geeksforgeeks.com",
