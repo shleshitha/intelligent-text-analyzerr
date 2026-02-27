@@ -15,6 +15,7 @@ from nltk.tokenize import sent_tokenize
 # CONFIG
 # =====================================================
 SERPAPI_KEY = os.getenv("SERPAPI_KEY")
+print("🔥 SERPAPI KEY VALUE:", SERPAPI_KEY)
 TRUSTED_DOMAINS = (
    "wikipedia.org",
     "geeksforgeeks.com",
